@@ -1,0 +1,25 @@
+.menuList {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.menuList__container > h4 {
+  color: rgba(0, 0, 0, 0.87);
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+.menuList__items {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.menuList__items > a {
+  color: rgba(0, 0, 0, 0.56);
+  font-size: 15px;
+  font-weight: 600;
+  max-width: 150px;
+  line-height: 1.5;
+}

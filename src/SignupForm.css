@@ -1,0 +1,120 @@
+.signupForm {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.1), 0 4px 5px 0 rgba(0, 0, 0, 0.06),
+    0 2px 4px 0 rgba(0, 0, 0, 0.07);
+  border-radius: 12px;
+  max-width: 500px;
+  height: 700px;
+  margin-bottom: 20px;
+}
+
+.signupForm__container {
+  padding: 56px;
+}
+
+.signupForm__section {
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 19px;
+  margin-bottom: 8px;
+}
+
+.signupForm__section:nth-of-type(2) {
+  margin-top: 48px;
+}
+
+.signupForm__inputContainer {
+  position: relative;
+  margin-bottom: 8px;
+}
+
+.signupForm__input {
+  width: 100%;
+}
+
+.signupForm__resetLinks {
+  margin-top: 20px;
+}
+
+.signupForm__resetLinks > a {
+  display: block;
+  margin-bottom: 15px;
+  text-decoration: underline;
+  color: #00653e;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.signupForm__resetLinks > a:hover {
+  text-decoration: none;
+}
+
+.signupForm__error {
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: smaller;
+}
+
+.signupForm__error > .MuiSvgIcon-root {
+  color: #e75b52;
+}
+
+.signupForm__reportIcon {
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translateY(100%);
+}
+
+.signupForm__visibilityIcon {
+  cursor: pointer;
+  color: grey;
+  position: absolute;
+  right: 10%;
+  top: 0;
+  transform: translateY(80%);
+}
+
+.signupForm__rewards {
+  color: rgba(0, 0, 0, 0.56);
+  font-size: 14px;
+  margin: 24px 0;
+}
+
+.signupForm__span {
+  color: rgba(0, 0, 0, 0.87);
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.signupForm__form {
+  position: relative;
+  width: 100%;
+}
+
+.signupForm__form > button {
+  margin-top: 50px;
+  position: absolute;
+  right: 0;
+}
+
+@media (max-width: 425px) {
+  .signupForm {
+    box-shadow: none;
+    height: 500px;
+  }
+  .signupForm__container {
+    padding: 0 20px;
+  }
+  .signupForm__section {
+    font-size: 16px;
+  }
+  .signupForm__rewards {
+    font-size: 13px;
+  }
+  .signupForm__span {
+    font-size: 14px;
+  }
+}

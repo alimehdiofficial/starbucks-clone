@@ -1,0 +1,31 @@
+.menuItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 260px;
+}
+
+.menuItem > h4 {
+  color: rgba(0, 0, 0, 0.87);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.menuItem__image {
+  border-radius: 50%;
+  object-fit: contain;
+  width: 120px;
+}
+
+@media (max-width: 768px) {
+  .menuItem {
+    width: 240px;
+  }
+  .menuItem__image {
+    width: 80px;
+  }
+  .menuItem > h4 {
+    font-size: 16px;
+  }
+}

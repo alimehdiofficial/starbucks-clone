@@ -1,58 +1,83 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import React, { useEffect } from 'react'
+import './App.css'
+import Header from './Header'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from 'react-router-dom'
+import Home from './Home'
+import Login from './Login'
+import Signup from './Signup'
+import { useDispatch, useSelector } from 'react-redux'
+import { login, logout, selectUser } from './features/userSlice'
+import { auth } from './firebase'
+import Menu from './Menu'
+import { Footer } from './Footer'
+import FeaturedPage from './FeaturedPage'
+import { Fade } from 'react-awesome-reveal'
 
 function App() {
+  const user = useSelector(selectUser)
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    auth.onAuthStateChanged((userAuth) => {
+      if (userAuth) {
+        // User is signed in
+        dispatch(
+          login({
+            email: userAuth.email,
+            uid: userAuth.uid,
+            displayName: userAuth.displayName,
+          })
+        )
+      } else {
+        // User is signed out
+        dispatch(logout())
+      }
+    })
+  }, [dispatch])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
+    <div className='app'>
+      <Router>
+        <Switch>
+          <Route exact path='/'>
+            <Header />
+            <Home />
+            <Fade>
+              <Footer />
+            </Fade>
+          </Route>
+          <Route exact path='/account/signin'>
+            {user ? <Redirect to='/menu' /> : <Login />}
+          </Route>
+          <Route exact path='/account/create'>
+            {user ? <Redirect to='/menu' /> : <Signup />}
+          </Route>
+          <Route exact path='/menu'>
+            {!user ? (
+              <Redirect to='/account/signin' />
+            ) : (
+              <>
+                <Header menuPage />
+                <Menu />
+              </>
+            )}
+          </Route>
+          <Route exact path='/menu/featured'>
+            <Header />
+            <FeaturedPage />
+            <Fade>
+              <Footer />
+            </Fade>
+          </Route>
+        </Switch>
+      </Router>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

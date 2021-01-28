@@ -1,0 +1,16 @@
+.featuredPage__discover {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.featuredPage__featured {
+  margin-top: 40px;
+}
+
+@media (max-width: 768px) {
+  .featuredPage__discover {
+    flex-direction: column;
+  }
+}

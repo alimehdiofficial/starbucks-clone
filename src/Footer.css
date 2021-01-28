@@ -1,0 +1,37 @@
+.accordion__header {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  margin-bottom: 10px;
+}
+
+.accordion__header:first-of-type {
+  margin-top: 60px;
+}
+
+.accordion__header > a {
+  font-size: 19px;
+  color: rgba(0, 0, 0, 0.87);
+  font-weight: 600;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.accordion__section {
+  overflow: hidden;
+}
+
+@media (max-width: 425px) {
+  .accordion__header {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .accordion__header > a {
+    font-size: 16px;
+  }
+  .accordion__icon > .MuiSvgIcon-root {
+    font-size: 30px;
+  }
+}
