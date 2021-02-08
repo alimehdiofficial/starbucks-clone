@@ -1,16 +1,16 @@
-.featuredPage__discover {
+.featuredScreen__discover {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 25px;
 }
 
-.featuredPage__featured {
+.featuredScreen__featured {
   margin-top: 40px;
 }
 
 @media (max-width: 768px) {
-  .featuredPage__discover {
+  .featuredScreen__discover {
     flex-direction: column;
   }
 }

@@ -1,23 +1,23 @@
-import React from 'react'
-import './Menu.css'
-import MenuHeader from './MenuHeader'
-import MenuList from './MenuList'
-import MenuItem from './MenuItem'
-import menuList from './menuList.json'
+import React from "react";
+import "./MenuScreen.css";
+import MenuHeader from "../MenuHeader";
+import MenuList from "../MenuList";
+import MenuItem from "../MenuItem";
+import menuList from "../menuList.json";
 
-function Menu() {
+function MenuScreen() {
   return (
-    <div className='menu'>
+    <div className="menuScreen">
       <MenuHeader />
-      <div className='menu__container'>
-        <div className='menu__left'>
+      <div className="menuScreen__container">
+        <div className="menuScreen__left">
           <MenuList />
         </div>
-        <div className='menu__right'>
+        <div className="menuScreen__right">
           <h1>Menu</h1>
-          <div className='menu__category'>
+          <div className="menuScreen__category">
             <h2>Drinks</h2>
-            <div className='menu__items'>
+            <div className="menuScreen__items">
               {menuList.map((menuListCategory) =>
                 menuListCategory.drinks.map(({ type, path, image }) => (
                   <MenuItem type={type} image={image} />
@@ -26,9 +26,9 @@ function Menu() {
             </div>
           </div>
 
-          <div className='menu__category'>
+          <div className="menuScreen__category">
             <h2>Food</h2>
-            <div className='menu__items'>
+            <div className="menuScreen__items">
               {menuList.map((menuListCategory) =>
                 menuListCategory.food.map(({ type, path, image }) => (
                   <MenuItem type={type} image={image} />
@@ -37,9 +37,9 @@ function Menu() {
             </div>
           </div>
 
-          <div className='menu__category'>
+          <div className="menuScreen__category">
             <h2>At Home Coffee</h2>
-            <div className='menu__items'>
+            <div className="menuScreen__items">
               {menuList.map((menuListCategory) =>
                 menuListCategory.atHomeCoffee.map(({ type, path, image }) => (
                   <MenuItem type={type} image={image} />
@@ -48,9 +48,9 @@ function Menu() {
             </div>
           </div>
 
-          <div className='menu__category'>
+          <div className="menuScreen__category">
             <h2>Merchandise</h2>
-            <div className='menu__items'>
+            <div className="menuScreen__items">
               {menuList.map((menuListCategory) =>
                 menuListCategory.merchandise.map(({ type, path, image }) => (
                   <MenuItem type={type} image={image} />
@@ -61,7 +61,7 @@ function Menu() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Menu
+export default MenuScreen;

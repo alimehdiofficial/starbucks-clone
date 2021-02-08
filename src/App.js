@@ -1,26 +1,26 @@
-import React, { useEffect } from 'react'
-import './App.css'
-import Header from './Header'
+import React, { useEffect } from "react";
+import "./App.css";
+import Header from "./Header";
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Redirect,
-} from 'react-router-dom'
-import Home from './Home'
-import Login from './Login'
-import Signup from './Signup'
-import { useDispatch, useSelector } from 'react-redux'
-import { login, logout, selectUser } from './features/userSlice'
-import { auth } from './firebase'
-import Menu from './Menu'
-import { Footer } from './Footer'
-import FeaturedPage from './FeaturedPage'
-import { Fade } from 'react-awesome-reveal'
+} from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { login, logout, selectUser } from "./features/userSlice";
+import { auth } from "./firebase";
+import { Footer } from "./Footer";
+import { Fade } from "react-awesome-reveal";
+import FeaturedScreen from "./screens/FeaturedScreen";
+import HomeScreen from "./screens/HomeScreen";
+import LoginScreen from "./screens/LoginScreen";
+import MenuScreen from "./screens/MenuScreen";
+import SignupScreen from "./screens/SignupScreen";
 
 function App() {
-  const user = useSelector(selectUser)
-  const dispatch = useDispatch()
+  const user = useSelector(selectUser);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     auth.onAuthStateChanged((userAuth) => {
@@ -32,44 +32,44 @@ function App() {
             uid: userAuth.uid,
             displayName: userAuth.displayName,
           })
-        )
+        );
       } else {
         // User is signed out
-        dispatch(logout())
+        dispatch(logout());
       }
-    })
-  }, [dispatch])
+    });
+  }, [dispatch]);
 
   return (
-    <div className='app'>
+    <div className="app">
       <Router>
         <Switch>
-          <Route exact path='/'>
+          <Route exact path="/">
             <Header />
-            <Home />
+            <HomeScreen />
             <Fade>
               <Footer />
             </Fade>
           </Route>
-          <Route exact path='/account/signin'>
-            {user ? <Redirect to='/menu' /> : <Login />}
+          <Route exact path="/account/signin">
+            {user ? <Redirect to="/menu" /> : <LoginScreen />}
           </Route>
-          <Route exact path='/account/create'>
-            {user ? <Redirect to='/menu' /> : <Signup />}
+          <Route exact path="/account/create">
+            {user ? <Redirect to="/menu" /> : <SignupScreen />}
           </Route>
-          <Route exact path='/menu'>
+          <Route exact path="/menu">
             {!user ? (
-              <Redirect to='/account/signin' />
+              <Redirect to="/account/signin" />
             ) : (
               <>
                 <Header menuPage />
-                <Menu />
+                <MenuScreen />
               </>
             )}
           </Route>
-          <Route exact path='/menu/featured'>
+          <Route exact path="/menu/featured">
             <Header />
-            <FeaturedPage />
+            <FeaturedScreen />
             <Fade>
               <Footer />
             </Fade>
@@ -77,7 +77,7 @@ function App() {
         </Switch>
       </Router>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

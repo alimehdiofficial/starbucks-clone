@@ -1,8 +1,8 @@
-.login {
+.loginScreen {
   display: flex;
 }
 
-.login__left {
+.loginScreen__left {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -15,14 +15,14 @@
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24), 0 4px 4px rgba(0, 0, 0, 0.12);
 }
 
-.login__left > a > img {
+.loginScreen__left > a > img {
   object-fit: contain;
   height: 50px;
   padding-top: 30px;
   padding-left: 40px;
 }
 
-.login__info {
+.loginScreen__info {
   width: 100%;
   height: 100%;
   display: grid;
@@ -31,11 +31,11 @@
   color: rgba(0, 0, 0, 0.87);
 }
 
-.login__info > h1 {
+.loginScreen__info > h1 {
   font-weight: 800;
 }
 
-.login__right {
+.loginScreen__right {
   overflow: scroll;
   display: grid;
   margin-left: 40vw;
@@ -45,7 +45,7 @@
   padding: 20px 0;
 }
 
-.login__right > form {
+.loginScreen__right > form {
   min-width: 300px;
   min-height: 420px;
   display: flex;
@@ -55,19 +55,19 @@
   padding-top: 60px;
 }
 
-.login__inputContainer {
+.loginScreen__inputContainer {
   position: relative;
 }
 
-.login__input {
+.loginScreen__input {
   width: 100%;
 }
 
-.login__resetLinks {
+.loginScreen__resetLinks {
   margin-top: 20px;
 }
 
-.login__resetLinks > a {
+.loginScreen__resetLinks > a {
   display: block;
   margin-bottom: 15px;
   text-decoration: underline;
@@ -76,11 +76,11 @@
   font-size: 15px;
 }
 
-.login__resetLinks > a:hover {
+.loginScreen__resetLinks > a:hover {
   text-decoration: none;
 }
 
-.login__error {
+.loginScreen__error {
   margin-top: 5px;
   display: flex;
   align-items: center;
@@ -88,18 +88,18 @@
   font-size: smaller;
 }
 
-.login__error > .MuiSvgIcon-root {
+.loginScreen__error > .MuiSvgIcon-root {
   color: #e75b52;
 }
 
-.login__reportIcon {
+.loginScreen__reportIcon {
   position: absolute;
   right: 0;
   top: 0;
   transform: translateY(100%);
 }
 
-.login__visibilityIcon {
+.loginScreen__visibilityIcon {
   cursor: pointer;
   color: grey;
   position: absolute;
@@ -108,7 +108,7 @@
   transform: translateY(80%);
 }
 
-.login__rewards {
+.loginScreen__rewards {
   text-align: center;
   width: 100%;
   padding: 20px 0;
@@ -116,19 +116,19 @@
   color: white;
 }
 
-.login__rewards > h4 {
+.loginScreen__rewards > h4 {
   font-size: 14px;
   font-weight: 800;
   letter-spacing: 1.4px;
 }
 
-.login__joinNow {
+.loginScreen__joinNow {
   background-color: #edebe9;
   width: 100%;
   padding: 30px 0;
 }
 
-.login__joinNowContainer {
+.loginScreen__joinNowContainer {
   max-width: 300px;
   margin-left: auto;
   margin-right: auto;
@@ -137,7 +137,7 @@
   gap: 20px;
 }
 
-.login__joinNowContainer > a {
+.loginScreen__joinNowContainer > a {
   display: inline-block;
   background: none;
   border-style: solid;
@@ -153,49 +153,49 @@
   margin-right: auto;
 }
 
-.login__joinNowContainer > a:hover {
+.loginScreen__joinNowContainer > a:hover {
   background-color: rgba(0, 0, 0, 0.06);
 }
 
-.login__joinNowContainer > h4 {
+.loginScreen__joinNowContainer > h4 {
   font-size: 20px;
   font-weight: 600;
   color: rgba(0, 0, 0, 0.87);
 }
 
-.login__joinNowContainer > p {
+.loginScreen__joinNowContainer > p {
   font-size: 14px;
   font-weight: 600;
   line-height: 1.6;
 }
 
 @media (max-width: 1024px) {
-  .login__info {
+  .loginScreen__info {
     font-size: 12px;
   }
 }
 
 @media (max-width: 768px) {
-  .login {
+  .loginScreen {
     flex-direction: column;
   }
-  .login__left {
+  .loginScreen__left {
     position: relative;
     width: 100%;
     height: 150px;
     gap: 10px;
   }
-  .login__info {
+  .loginScreen__info {
     display: inline;
     padding-left: 40px;
   }
-  .login__right {
+  .loginScreen__right {
     margin-left: 0;
   }
 }
 
 @media (max-width: 425px) {
-  .login__info {
+  .loginScreen__info {
     font-size: 9px;
   }
 }
